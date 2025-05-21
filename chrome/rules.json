@@ -1,0 +1,19 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "transform": {
+          "scheme": "https",
+          "host": "ieeexplore-ieee-org.tudelft.idm.oclc.org"
+        }
+      }
+    },
+    "condition": {
+      "urlFilter": "https://ieeexplore.ieee.org/*",
+      "resourceTypes": ["main_frame", "sub_frame", "stylesheet", "script", "image", "font", "object", "xmlhttprequest", "ping", "csp_report", "media", "websocket", "other"]
+    }
+  }
+]
