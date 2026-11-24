@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "IEEE Xplore TU Delft Proxy Redirector",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Automatically routes ieee.org requests through the TU Delft proxy.",
   "icons": {
     "48": "icons/icon-48.png",
@@ -15,9 +15,10 @@
   "background": {
     "scripts": ["background.js"]
   },
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
-      "id": "gargant0373@gmail.com"
+      "id": "ieee-redirect-tudelft@gargant0373.github.io",
+      "strict_min_version": "109.0"
     }
   }
 }

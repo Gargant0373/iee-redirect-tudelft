@@ -1,22 +1,21 @@
-const ORIGINAL_HOST = "https://ieeexplore.ieee.org";
-const PROXY_HOST    = "https://ieeexplore-ieee-org.tudelft.idm.oclc.org";
+const ORIGINAL_HOST = "ieeexplore.ieee.org";
+const PROXY_HOST    = "ieeexplore-ieee-org.tudelft.idm.oclc.org";
 
 browser.webRequest.onBeforeRequest.addListener(
   details => {
-    const url = details.url;
-
-    if (url.startsWith(PROXY_HOST)) {
+    const url = new URL(details.url);
+    if (url.hostname !== ORIGINAL_HOST) {
       return {};
     }
 
-    if (url.startsWith(ORIGINAL_HOST)) {
-      const redirectUrl = url.replace(ORIGINAL_HOST, PROXY_HOST);
-      console.log("Redirecting:", url, "→", redirectUrl);
-      return { redirectUrl };
-    }
-
-    return {};
+    url.protocol = "https:";
+    url.hostname = PROXY_HOST;
+    url.port = "";
+    return { redirectUrl: url.toString() };
   },
-  { urls: ["*://ieeexplore.ieee.org/*"] },
+  {
+    urls: ["*://ieeexplore.ieee.org/*"],
+    types: ["main_frame", "sub_frame"]
+  },
   ["blocking"]
 );

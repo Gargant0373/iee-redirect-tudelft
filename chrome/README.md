@@ -30,7 +30,7 @@ To create a distributable package:
 
 1. Zip all the files in the `chrome` directory:
    ```bash
-   cd chrome && zip -r ieee-redirect-chrome.zip manifest.json background.js rules.json icons/ LICENSE README.md
+   cd chrome && zip -r ieee-redirect-chrome.zip manifest.json rules.json icons/ LICENSE README.md
    ```
 2. The resulting `ieee-redirect-chrome.zip` file can be distributed or submitted to the Chrome Web Store.
 
